@@ -11,8 +11,8 @@ import UIKit
 class CityCell : UITableViewCell {
     
     @IBOutlet weak var weather_img: UIImageView!
-    @IBOutlet weak var city_name: UITextField!
-    @IBOutlet weak var temp_actual: UITextField!
+    @IBOutlet weak var city_name: UILabel!
+    @IBOutlet weak var temp_actual: UILabel!
 }
 
 
