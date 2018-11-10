@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
     }
     
     func downloadImage(imgName : String) {
-        let urlString = "https://www.metaweather.com/static/img/weather/png/64/" + imgName + ".png"
+        let urlString = "https://www.metaweather.com/static/img/weather/png/" + imgName + ".png"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
