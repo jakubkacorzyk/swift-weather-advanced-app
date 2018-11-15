@@ -19,7 +19,8 @@
 		3B7BE0BC2185E8F300F672DA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE0BB2185E8F300F672DA /* Storage.swift */; };
 		3B7BE0BE2185EBC200F672DA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE0BD2185EBC200F672DA /* Location.swift */; };
 		3B7BE10621962E7800F672DA /* InsertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE10521962E7800F672DA /* InsertViewController.swift */; };
-		3B7BE1122196F0B700F672DA /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE1112196F0B700F672DA /* DataCell.swift */; };
+		3B7BE1142197825200F672DA /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE1132197825200F672DA /* DataCell.swift */; };
+		3B7BE237219DFA8F00F672DA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7BE236219DFA8F00F672DA /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,8 @@
 		3B7BE0BB2185E8F300F672DA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3B7BE0BD2185EBC200F672DA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3B7BE10521962E7800F672DA /* InsertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertViewController.swift; sourceTree = "<group>"; };
-		3B7BE1112196F0B700F672DA /* DataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		3B7BE1132197825200F672DA /* DataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		3B7BE236219DFA8F00F672DA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,7 @@
 		3B0F556221786B2D00BE3FC1 /* weatherAdvancedKacorzyk */ = {
 			isa = PBXGroup;
 			children = (
-				3B7BE1112196F0B700F672DA /* DataCell.swift */,
+				3B7BE1132197825200F672DA /* DataCell.swift */,
 				3B0F556321786B2D00BE3FC1 /* AppDelegate.swift */,
 				3B0F556521786B2D00BE3FC1 /* MasterViewController.swift */,
 				3B0F556721786B2D00BE3FC1 /* DetailViewController.swift */,
@@ -121,6 +123,7 @@
 				3B7BE0BB2185E8F300F672DA /* Storage.swift */,
 				3B7BE0BD2185EBC200F672DA /* Location.swift */,
 				3B7BE10521962E7800F672DA /* InsertViewController.swift */,
+				3B7BE236219DFA8F00F672DA /* MapViewController.swift */,
 			);
 			path = weatherAdvancedKacorzyk;
 			sourceTree = "<group>";
@@ -277,7 +280,8 @@
 				3B7BE0BA2185E7A600F672DA /* LocationData.swift in Sources */,
 				3B0F556821786B2D00BE3FC1 /* DetailViewController.swift in Sources */,
 				3B0F556621786B2D00BE3FC1 /* MasterViewController.swift in Sources */,
-				3B7BE1122196F0B700F672DA /* DataCell.swift in Sources */,
+				3B7BE1142197825200F672DA /* DataCell.swift in Sources */,
+				3B7BE237219DFA8F00F672DA /* MapViewController.swift in Sources */,
 				3B0F556421786B2D00BE3FC1 /* AppDelegate.swift in Sources */,
 				3B7BE0BE2185EBC200F672DA /* Location.swift in Sources */,
 				3B7BE0BC2185E8F300F672DA /* Storage.swift in Sources */,

@@ -27,6 +27,8 @@ class DetailViewController: UIViewController {
     
     let doubleFormat = ".2"
     
+    var position = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -81,10 +83,12 @@ class DetailViewController: UIViewController {
             let json = try? JSONSerialization.jsonObject(with: data, options: [])
             
             if let dictionary = json as? [String:Any]{
+                if let positionData = dictionary["latt_long"] as? String{
+                    self.position = positionData
+                }
                 if let weather_data = dictionary["consolidated_weather"] as? [[String:Any]]{
                     self.weather = weather_data
                     self.updateView()
-                    
                 }
             }
             
@@ -148,7 +152,21 @@ class DetailViewController: UIViewController {
         self.currentIndex = self.currentIndex + 1
         updateView()
     }
-   
+    
+    
+    @IBAction func showLocationOnMap(_ sender: Any) {
+        performSegue(withIdentifier: "showMap", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is MapViewController
+        {
+            let vc = segue.destination as? MapViewController
+            vc?.position = self.position
+        }
+    }
+    
 }
     
     

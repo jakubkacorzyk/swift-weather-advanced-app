@@ -7,23 +7,44 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+
 
 protocol InsertViewControllerDelegate: class {
     func insertNewCity(cityName: String)
 }
 
-class InsertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class InsertViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate{
     
     @IBOutlet weak var searchText: UITextField!
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    let locationManager = CLLocationManager()
+    
     weak var delegate: InsertViewControllerDelegate!
     
     var data : [String] = []
     
+    var actualLocation : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
         
         tableView.delegate = self
         
@@ -92,5 +113,45 @@ class InsertViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }.resume()
         
     }
+    
+    @IBAction func useActualLocation(_ sender: Any) {
+        if(actualLocation != ""){
+            getData(name: actualLocation)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        setCityAndCountry(latitude: locValue.latitude, longitude: locValue.longitude)
+    }
+    
+    func setCityAndCountry(latitude : Double, longitude : Double){
+        let longi :CLLocationDegrees = longitude
+        let lati :CLLocationDegrees = latitude
+        
+        let location = CLLocation(latitude: lati, longitude: longi) //changed!!!
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+        
+        if error != nil {
+            return
+        }
+        
+        if placemarks?.count ?? 0 > 0 {
+            let pm = placemarks?[0] as! CLPlacemark
+            DispatchQueue.main.async{
+                self.locationLabel.text = "Aktualnie znajdujesz się w: " + (pm.locality ?? "") + ", " + (pm.country ?? "")
+                if let city = pm.locality {
+                    self.actualLocation = city
+                }
+            }
+        }
+        else {
+            return
+        }
+        })
+    }
+    
+    
     
 }
